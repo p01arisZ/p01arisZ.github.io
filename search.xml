@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Github Pages + Hexo + NexT 博客搭建、安全备份笔记</title>
+    <url>/p0larisZ/p0larisZ.github.io/2021/09/05/Hexo/</url>
+    <content><![CDATA[<h2 id="0x01-Github-Pages"><a href="#0x01-Github-Pages" class="headerlink" title="0x01 Github Pages"></a>0x01 Github Pages</h2><p>Github 创建仓库,格式为 your_name.github.io ,会自动识别为 Github pages。</p>
+<h2 id="0x02-Git、Node-js"><a href="#0x02-Git、Node-js" class="headerlink" title="0x02 Git、Node.js"></a>0x02 Git、Node.js</h2><p>在本机安装 <a href="http://git-scm.com/downloads">Git</a>、<a href="https://nodejs.org/en/">Node.js</a> 并初始化。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name  &quot;Your Name&quot;</span><br><span class="line">$ git config --global user.email &quot;email@example.com&quot;</span><br><span class="line"></span><br><span class="line">ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</span><br><span class="line">GitHub-&gt; Account settings-&gt; SSH and GPG Keys-&gt; Add SSH Key-&gt; id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h2 id="0x03-Hexo、插件"><a href="#0x03-Hexo、插件" class="headerlink" title="0x03 Hexo、插件"></a>0x03 Hexo、插件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line">hexo init blog_folder</span><br><span class="line">cd blog_folder</span><br><span class="line">npm install</span><br><span class="line">npm install hexo-deployer-git --save # hexo的git插件</span><br><span class="line">npm install hexo-generator-searchdb --save # Local Search</span><br><span class="line">hexo new page categories</span><br><span class="line">hexo new page tags</span><br><span class="line">hexo new page about</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="0x04-关联仓库"><a href="#0x04-关联仓库" class="headerlink" title="0x04 关联仓库"></a>0x04 关联仓库</h2><p>修改 _config.yml 中的 Deployment 部分，关联仓库</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/p0larisZ/p0larisZ.github.io</span><br><span class="line">  branch: master</span><br><span class="line"></span><br><span class="line">此外，可将_config.yml中的repo修改为如下标准格式,这样每次 hexo d 时不用输入账户密码。</span><br><span class="line">repo: https://用户名:密码@github.com/用户名/用户名.github.io.git</span><br><span class="line"></span><br><span class="line">Tips：注意隐私数据安全!</span><br></pre></td></tr></table></figure>
+
+<h2 id="0x05-主题、美化"><a href="#0x05-主题、美化" class="headerlink" title="0x05 主题、美化"></a>0x05 主题、美化</h2><p><a href="https://github.com/theme-next/hexo-theme-next">NexT</a> , Git clone 到博客 themes 目录下，改名为NexT。</p>
+<p>1.隐藏网页底部 powered By Hexo / 强力驱动</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\themes\NexT\_config.yml</span><br><span class="line"></span><br><span class="line"># Powered by Hexo &amp; NexT</span><br><span class="line">  powered: False</span><br></pre></td></tr></table></figure>
+
+
+<p>2.设置头像圆形</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">themes\next\source\css\_common\components\sidebar\sidebar-author.styl</span><br><span class="line"></span><br><span class="line">.site-author-image &#123;</span><br><span class="line">  display: block;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">  padding: $site-author-image-padding;</span><br><span class="line">  max-width: $site-author-image-width;</span><br><span class="line">  height: $site-author-image-height;</span><br><span class="line">  border: $site-author-image-border-width solid $site-author-image-border-color;</span><br><span class="line">  //设置圆形</span><br><span class="line">  border-radius: 50%;</span><br><span class="line">  transition: 2s all;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.Font</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">host: https://fonts.loli.net</span><br><span class="line">Global：Noto Serif SC</span><br><span class="line">title、headings：Arvo</span><br></pre></td></tr></table></figure>
+
+<p>4.Read More</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!-- more --&gt; # 在文章中添加进行截断</span><br><span class="line">zh-CN.yml read_more: Read More # 英文显示</span><br></pre></td></tr></table></figure>
+
+<p>5.修改文章底部的#号的标签，改为图标</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/themes/next/layout/_macro/post.swig</span><br><span class="line">搜索 &lt;a href=&quot;&#123;&#123; url_for(tag.path) &#125;&#125;&quot; rel=&quot;tag&quot;&gt;&#123;&#123; tag_indicate &#125;&#125; &#123;&#123; tag.name &#125;&#125;&lt;/a&gt;</span><br><span class="line">将 &#123;&#123; tag_indicate &#125;&#125; 换成 &lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="0x05-Backups"><a href="#0x05-Backups" class="headerlink" title="0x05 Backups"></a>0x05 Backups</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\source\            # 存放博客文章的文件夹 </span><br><span class="line">\_config.yml        # 博客的设置文件 </span><br><span class="line">\themes\NexT\_config.yml    # 博客主题的设置文件，其中 Simaliang 应替换为你所使用的主题名</span><br></pre></td></tr></table></figure>
+<p>将上述几个文件备份到 OneDrive 中，在博客目录下CMD执行如下 <a href="https://liam.page/2018/12/10/mklink-in-Windows/">Mklink</a> 命令。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mklink /d source &lt;path to Source&gt;</span><br><span class="line">mklink _config.yml &lt;path to _config.yml&gt;</span><br><span class="line">mklink themes\NexT\_config.yml &lt;path to \...\Themes\NexT\_config.yml&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="0x06-References"><a href="#0x06-References" class="headerlink" title="0x06 References"></a>0x06 References</h2><p><a href="https://quareia.github.io/blog/6efb1d64/">Github Pages+hexo+NexT 博客搭建、备份及还原</a></p>
+]]></content>
+      <categories>
+        <category>Hexo教程</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+</search>
