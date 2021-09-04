@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Github Pages + Hexo + NexT 博客搭建、安全备份笔记</title>
-    <url>/p0larisZ/p0larisZ.github.io/2021/09/05/Hexo/</url>
+    <url>/2021/09/05/Hexo/</url>
     <content><![CDATA[<h2 id="0x01-Github-Pages"><a href="#0x01-Github-Pages" class="headerlink" title="0x01 Github Pages"></a>0x01 Github Pages</h2><p>Github 创建仓库,格式为 your_name.github.io ,会自动识别为 Github pages。</p>
 <h2 id="0x02-Git、Node-js"><a href="#0x02-Git、Node-js" class="headerlink" title="0x02 Git、Node.js"></a>0x02 Git、Node.js</h2><p>在本机安装 <a href="http://git-scm.com/downloads">Git</a>、<a href="https://nodejs.org/en/">Node.js</a> 并初始化。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name  &quot;Your Name&quot;</span><br><span class="line">$ git config --global user.email &quot;email@example.com&quot;</span><br><span class="line"></span><br><span class="line">ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</span><br><span class="line">GitHub-&gt; Account settings-&gt; SSH and GPG Keys-&gt; Add SSH Key-&gt; id_rsa.pub</span><br></pre></td></tr></table></figure>
