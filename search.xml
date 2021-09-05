@@ -8,7 +8,7 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name  &quot;Your Name&quot;</span><br><span class="line">$ git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure>
 
 <p>生成并添加 SSH 密钥</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</span><br><span class="line">GitHub-&gt; Account settings-&gt; SSH and GPG Keys-&gt; Add SSH Key-&gt; id_rsa.pub</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</span><br><span class="line">GitHub-&gt; Account settings-&gt; SSH and GPG Keys-&gt; Add SSH Key-&gt; id_rsa.pub</span><br><span class="line"></span><br><span class="line">检测 SSH Key 是否生效: ssh git@github.com</span><br></pre></td></tr></table></figure>
 
 <span id="more"></span>
 
@@ -36,8 +36,10 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/themes/next/layout/_macro/post.swig</span><br><span class="line">搜索 &lt;a href=&quot;&#123;&#123; url_for(tag.path) &#125;&#125;&quot; rel=&quot;tag&quot;&gt;&#123;&#123; tag_indicate &#125;&#125; &#123;&#123; tag.name &#125;&#125;&lt;/a&gt;</span><br><span class="line">将 &#123;&#123; tag_indicate &#125;&#125; 换成 &lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</span><br></pre></td></tr></table></figure>
 
 <p>6.侧边栏及页面圆角矩形</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\themes\NexT\source\css\_variables\Gemini.styl # Gemini 主题布局</span><br><span class="line">修改 </span><br><span class="line">$border-radius-inner     = 16px;</span><br><span class="line">$border-radius           = 16px;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\themes\NexT\source\css\_variables\Gemini.styl # Gemini 主题布局</span><br><span class="line">修改 </span><br><span class="line">$border-radius-inner     = 16px;</span><br><span class="line">$border-radius           = 16px;</span><br></pre></td></tr></table></figure>
 
+<p>7.分别设置中英文字体</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">中文字体</span><br><span class="line">修改 /source/css/_variables/base.styl</span><br><span class="line">$font-family-chinese      = &quot;Noto Serif SC&quot;</span><br><span class="line"></span><br><span class="line">修改/layout/partials/head/head.swig，在next_font添加</span><br><span class="line">&lt;link href=&quot;https://fonts.googleapis.com/css?family=Noto+Serif+SC|Roboto&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;</span><br><span class="line"></span><br><span class="line">英文字体</span><br><span class="line">修改 \themes\NexT\_config.yml</span><br><span class="line">global：Comic Sans MS</span><br><span class="line">title、headings：Arvo</span><br><span class="line"></span><br><span class="line">大小调整</span><br><span class="line">修改源文件/source/css/_variables/base.styl</span><br><span class="line">$font-size-smallest       = .75em;       # 12px</span><br><span class="line">$font-size-smaller        = .875em;      # 14px</span><br><span class="line">Tips: 1em等于16px</span><br></pre></td></tr></table></figure>
 
 
 <h2 id="0x05-Error"><a href="#0x05-Error" class="headerlink" title="0x05 Error"></a>0x05 Error</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d Error</span><br><span class="line">unable to access &#x27;https://github.com/p0larisZ/p0larisZ.github.io.git/&#x27;: The requested URL returned error: 403</span><br><span class="line">解决: Win10 控制面板-&gt; 类别:大图标-&gt; 凭证管理-&gt; 删除之前Github凭证</span><br></pre></td></tr></table></figure>
