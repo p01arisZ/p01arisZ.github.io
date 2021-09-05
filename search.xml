@@ -5,7 +5,10 @@
     <url>/2021/09/05/Hexo/</url>
     <content><![CDATA[<h2 id="0x01-Github-Pages"><a href="#0x01-Github-Pages" class="headerlink" title="0x01 Github Pages"></a>0x01 Github Pages</h2><p>Github 创建仓库,格式为 your_name.github.io ,会自动识别为 Github pages。</p>
 <h2 id="0x02-Git、Node-js"><a href="#0x02-Git、Node-js" class="headerlink" title="0x02 Git、Node.js"></a>0x02 Git、Node.js</h2><p>在本机安装 <a href="http://git-scm.com/downloads">Git</a>、<a href="https://nodejs.org/en/">Node.js</a> 并初始化。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name  &quot;Your Name&quot;</span><br><span class="line">$ git config --global user.email &quot;email@example.com&quot;</span><br><span class="line"></span><br><span class="line">ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</span><br><span class="line">GitHub-&gt; Account settings-&gt; SSH and GPG Keys-&gt; Add SSH Key-&gt; id_rsa.pub</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name  &quot;Your Name&quot;</span><br><span class="line">$ git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p>生成并添加 SSH 密钥</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</span><br><span class="line">GitHub-&gt; Account settings-&gt; SSH and GPG Keys-&gt; Add SSH Key-&gt; id_rsa.pub</span><br></pre></td></tr></table></figure>
 
 <span id="more"></span>
 
@@ -31,6 +34,11 @@
 
 <p>5.修改文章底部的#号的标签，改为图标</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/themes/next/layout/_macro/post.swig</span><br><span class="line">搜索 &lt;a href=&quot;&#123;&#123; url_for(tag.path) &#125;&#125;&quot; rel=&quot;tag&quot;&gt;&#123;&#123; tag_indicate &#125;&#125; &#123;&#123; tag.name &#125;&#125;&lt;/a&gt;</span><br><span class="line">将 &#123;&#123; tag_indicate &#125;&#125; 换成 &lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</span><br></pre></td></tr></table></figure>
+
+<p>6.侧边栏及页面圆角矩形</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\themes\NexT\source\css\_variables\Gemini.styl # Gemini 主题布局</span><br><span class="line">修改 </span><br><span class="line">$border-radius-inner     = 16px;</span><br><span class="line">$border-radius           = 16px;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
 
 <h2 id="0x05-Error"><a href="#0x05-Error" class="headerlink" title="0x05 Error"></a>0x05 Error</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d Error</span><br><span class="line">unable to access &#x27;https://github.com/p0larisZ/p0larisZ.github.io.git/&#x27;: The requested URL returned error: 403</span><br><span class="line">解决: Win10 控制面板-&gt; 类别:大图标-&gt; 凭证管理-&gt; 删除之前Github凭证</span><br></pre></td></tr></table></figure>
 
