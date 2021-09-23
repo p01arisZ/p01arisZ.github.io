@@ -27,7 +27,7 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">themes\next\source\css\_common\components\sidebar\sidebar-author.styl</span><br><span class="line"></span><br><span class="line">.site-author-image &#123;</span><br><span class="line">  display: block;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">  padding: $site-author-image-padding;</span><br><span class="line">  max-width: $site-author-image-width;</span><br><span class="line">  height: $site-author-image-height;</span><br><span class="line">  border: $site-author-image-border-width solid $site-author-image-border-color;</span><br><span class="line">  //设置圆形</span><br><span class="line">  border-radius: 50%;</span><br><span class="line">  transition: 2s all;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>3.Font</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">host: https://fonts.loli.net</span><br><span class="line">Global：Noto Serif SC</span><br><span class="line">title、headings：Arvo</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">host: https://fonts.loli.net</span><br></pre></td></tr></table></figure>
 
 <p>4.Read More</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!-- more --&gt; # 在文章中添加进行截断</span><br><span class="line">zh-CN.yml read_more: Read More # 英文显示</span><br></pre></td></tr></table></figure>
